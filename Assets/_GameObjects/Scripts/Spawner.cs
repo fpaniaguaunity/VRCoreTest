@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
         InvokeRepeating("Spawn",tiempoEntreSpawn, tiempoEntreSpawn);
     }
     void Spawn(){
+        GameObject.Find("GameManager")?.GetComponent<GameManager>()?.AddEnemy();
         contador++;
         Instantiate(prefab, transform);
         if (contador>=numeroElementos){

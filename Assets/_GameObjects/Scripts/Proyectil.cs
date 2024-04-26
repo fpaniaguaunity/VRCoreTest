@@ -12,6 +12,7 @@ public class Proyectil : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.CompareTag(enemyTag))
         {
+            GameObject.Find("GameManager")?.GetComponent<GameManager>()?.RemoveEnemy();
             Instantiate(prefabEnemyCollision, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         } else {
