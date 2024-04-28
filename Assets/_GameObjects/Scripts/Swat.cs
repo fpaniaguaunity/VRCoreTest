@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Swat : MonoBehaviour
 {
-    public Transform target;
     public float walkSpeed;
     public float runSpeed;
     public float fireDistance;
@@ -15,11 +14,13 @@ public class Swat : MonoBehaviour
     public AudioClip stepSound;
     private AudioSource stepAudioSource;
     private float distance;
+    private Transform target;
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         stepAudioSource = GetComponent<AudioSource>();
-        if (stepAudioSource != null )
+        if (stepAudioSource != null)
         {
             stepAudioSource.clip = stepSound;
         }
@@ -33,7 +34,8 @@ public class Swat : MonoBehaviour
         if (distance < runDistance && distance > walkDistance)
         {
             transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
-            if (!stepAudioSource.isPlaying) { 
+            if (!stepAudioSource.isPlaying)
+            {
                 stepAudioSource.Play();
             }
         }
@@ -45,18 +47,10 @@ public class Swat : MonoBehaviour
                 stepAudioSource.Play();
             }
         }
-        else if (distance < fireDistance)
-        {
-            Fire();
-            StopStepSound();
-        } else
+        else
         {
             StopStepSound();
         }
-    }
-    public void Fire()
-    {
-        print("Firing");
     }
     void PlayWalkStepSound()
     {
@@ -70,4 +64,5 @@ public class Swat : MonoBehaviour
     {
         stepAudioSource.Stop();
     }
+
 }
