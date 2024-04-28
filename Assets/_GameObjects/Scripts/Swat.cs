@@ -12,8 +12,18 @@ public class Swat : MonoBehaviour
     public float fireDistance;
     public float walkDistance;
     public float runDistance;
-    public float distance;
+    public AudioClip stepSound;
+    private AudioSource stepAudioSource;
+    private float distance;
 
+    private void Start()
+    {
+        stepAudioSource = GetComponent<AudioSource>();
+        if (stepAudioSource != null )
+        {
+            stepAudioSource.clip = stepSound;
+        }
+    }
 
     void Update()
     {
@@ -23,14 +33,41 @@ public class Swat : MonoBehaviour
         if (distance < runDistance && distance > walkDistance)
         {
             transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
+            if (!stepAudioSource.isPlaying) { 
+                stepAudioSource.Play();
+            }
         }
         else if (distance < walkDistance && distance > fireDistance)
         {
             transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
+            if (!stepAudioSource.isPlaying)
+            {
+                stepAudioSource.Play();
+            }
         }
         else if (distance < fireDistance)
         {
-            //TODO: Fire
+            Fire();
+            StopStepSound();
+        } else
+        {
+            StopStepSound();
         }
+    }
+    public void Fire()
+    {
+        print("Firing");
+    }
+    void PlayWalkStepSound()
+    {
+        stepAudioSource.Play();
+    }
+    void PlayRunStepSound()
+    {
+        stepAudioSource.Play();
+    }
+    void StopStepSound()
+    {
+        stepAudioSource.Stop();
     }
 }

@@ -38747,7 +38747,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709882505}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08e74a23954cc9f4298e64730f72dc23, type: 3}
@@ -105315,9 +105315,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 3.2755702
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.6377851, z: 0}
 --- !u!23 &1994495147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -115984,10 +115984,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 349451077}
-    - target: {fileID: 4403571662303322423, guid: 92aa48e25b8f63d41b24dac037a3eec9, type: 3}
-      propertyPath: runSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
