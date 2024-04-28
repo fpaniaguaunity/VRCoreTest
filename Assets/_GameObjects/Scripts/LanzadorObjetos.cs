@@ -8,13 +8,14 @@ public class LanzadorObjetos : MonoBehaviour
     public List<GameObject> prefabsObjetos;
     public float fuerza;
     public float tiempoEntreLanzamientos = 5;
-    // Start is called before the first frame update
-    void Start()
+    public void StartLanzamientos()
     {
         InvokeRepeating("Lanzar", tiempoEntreLanzamientos, tiempoEntreLanzamientos);
     }
-
-    // Update is called once per frame
+    public void StopLanzamientos()
+    {
+        CancelInvoke("Lanzar");
+    }
     void Lanzar()
     {
         GameObject gameObject = Instantiate(prefabsObjetos[Random.Range(0, prefabsObjetos.Count)], puntoLanzamiento.position, puntoLanzamiento.rotation);
