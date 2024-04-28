@@ -1215,9 +1215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 1
+  walkSpeed: 1
+  runSpeed: 2
   fireDistance: 5
-  followDistance: 20
+  walkDistance: 15
+  runDistance: 30
   distance: 0
 --- !u!136 &7345166280568440904
 CapsuleCollider:
