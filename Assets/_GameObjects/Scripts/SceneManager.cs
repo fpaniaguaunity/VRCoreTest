@@ -8,7 +8,6 @@ public class SceneManager : MonoBehaviour
     public GameObject panel;
     public InputActionReference inputActionReference;
 
-
     private void OnEnable()
     {
         inputActionReference.action.performed += Activar;
